@@ -1,5 +1,7 @@
 "use client";
 
+import { v4 as uuidv4 } from "uuid";
+
 import { RenderedState } from "../types";
 import { DEBUG } from "./debug";
 
@@ -7,7 +9,7 @@ let setupDone = false;
 let writeState = () => {};
 
 export function newToken() {
-  return crypto.randomUUID().substring(0, 8);
+  return uuidv4().substring(0, 8);
 }
 
 // Next.js also modifies history.pushState and history.replaceState in useEffect.
